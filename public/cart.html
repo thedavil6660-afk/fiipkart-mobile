@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping Cart | FIipkart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-badge"><span class="brand-tilted-f">F</span></div>
+        <div class="brand-title">FIipkart</div>
+      </a>
+      <div style="font-weight: 600; font-size: 14px; color: white;">Order Checkout Flow</div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="cart-layout" id="cartLayout">
+      <div class="cart-table-card">
+        <h2 style="font-size: 18px; font-weight: 700; margin-bottom: 16px; border-bottom: 1px solid var(--border-color); padding-bottom: 8px;">
+          My Cart (<span id="cartItemCount">0</span> Items)
+        </h2>
+        <div id="cartItemsList"></div>
+      </div>
+
+      <div class="summary-card">
+        <h3 style="font-size: 15px; font-weight: 700; color: var(--text-muted); border-bottom: 1px solid var(--border-color); padding-bottom: 10px; margin-bottom: 14px;">
+          PRICE DETAILS
+        </h3>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px;">
+          <span>Price Subtotal</span>
+          <span id="priceSubtotal">₹0</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px; color: var(--success-green);">
+          <span>Discount Savings</span>
+          <span id="discountSavings">-₹0</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-bottom: 10px; font-size: 14px;">
+          <span>Delivery Charges</span>
+          <span style="color: var(--success-green); font-weight: 700;">FREE</span>
+        </div>
+        <div style="display: flex; justify-content: space-between; margin-top: 14px; padding-top: 14px; border-top: 1px dashed var(--border-color); font-size: 18px; font-weight: 800;">
+          <span>Total Amount</span>
+          <span id="totalAmount">₹0</span>
+        </div>
+
+        <button class="btn-checkout" id="proceedBtn" onclick="proceedToPayment()">Proceed to Checkout</button>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/cart.js"></script>
+</body>
+</html>
