@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Admin Dashboard | FIipkart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    .admin-nav {
+      display: flex;
+      gap: 12px;
+      margin-bottom: 24px;
+      border-bottom: 2px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+    .admin-tab-btn {
+      background: none;
+      border: none;
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--text-muted);
+      cursor: pointer;
+      padding: 8px 16px;
+      border-radius: 4px;
+    }
+    .admin-tab-btn.active {
+      background: var(--primary-blue);
+      color: white;
+    }
+    .data-table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 13px;
+    }
+    .data-table th, .data-table td {
+      border: 1px solid var(--border-color);
+      padding: 10px;
+      text-align: left;
+    }
+    .data-table th {
+      background: #f8fafc;
+    }
+  </style>
+</head>
+<body style="background: #f8fafc;">
+
+  <header class="site-header" style="background: #0f172a;">
+    <div class="header-container">
+      <div style="display: flex; align-items: center; gap: 12px;">
+        <div class="brand-logo-badge"><span class="brand-tilted-f">F</span></div>
+        <h2 style="font-size: 18px; font-weight: 800;">Gemini Operations Portal</h2>
+      </div>
+      <div>
+        <button onclick="logoutAdmin()" style="background: #ef4444; color: white; border: none; padding: 6px 14px; border-radius: 4px; cursor: pointer; font-size: 12px; font-weight: 700;">
+          Log Out
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main class="main-container">
+    <div class="admin-nav">
+      <button class="admin-tab-btn active" onclick="switchTab('productsTab', this)">Product Catalog</button>
+      <button class="admin-tab-btn" onclick="switchTab('ordersTab', this)">Customer Orders</button>
+      <button class="admin-tab-btn" onclick="switchTab('upiTab', this)">UPI & Gateway Settings</button>
+    </div>
+
+    <div id="productsTab" class="admin-tab-content">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px;">
+        <h3 style="font-size: 18px;">Product Inventory</h3>
+        <button onclick="openAddProductModal()" class="btn-checkout" style="width: auto; padding: 8px 16px; margin: 0; font-size: 13px;">+ Add New Product</button>
+      </div>
+      <div style="overflow-x: auto; background: white; border-radius: 6px; box-shadow: var(--shadow-sm);">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Thumbnail</th>
+              <th>Title</th>
+              <th>Category</th>
+              <th>Original (₹)</th>
+              <th>Selling (₹)</th>
+              <th>Discount</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminProductsTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="ordersTab" class="admin-tab-content" style="display: none;">
+      <h3 style="font-size: 18px; margin-bottom: 16px;">Order Records</h3>
+      <div style="overflow-x: auto; background: white; border-radius: 6px; box-shadow: var(--shadow-sm);">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>Order ID</th>
+              <th>Customer</th>
+              <th>Items & Qty</th>
+              <th>Total Amount</th>
+              <th>Payment Method</th>
+              <th>Status</th>
+              <th>Actions</th>
+            </tr>
+          </thead>
+          <tbody id="adminOrdersTable"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div id="upiTab" class="admin-tab-content" style="display: none;">
+      <div class="cart-table-card" style="max-width: 600px;">
+        <h3 style="font-size: 18px; margin-bottom: 14px;">UPI Gateway & Merchant Identity</h3>
+        <form id="upiSettingsForm">
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Merchant UPI Virtual Payment Address (VPA)</label>
+            <input type="text" id="merchantUpiInput" class="search-input" style="border: 1px solid var(--border-color);" placeholder="e.g. fiipkartmerchant@icici" required>
+          </div>
+          <div style="margin-bottom: 16px;">
+            <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Registered Merchant Name</label>
+            <input type="text" id="merchantNameInput" class="search-input" style="border: 1px solid var(--border-color);" placeholder="FIipkart Official" required>
+          </div>
+          <div style="margin-bottom: 20px;">
+            <label style="display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; cursor: pointer;">
+              <input type="checkbox" id="upiActiveToggle" checked> Enable UPI Gateway on Checkout
+            </label>
+          </div>
+          <button type="submit" class="btn-checkout" style="width: auto; padding: 10px 24px; margin: 0;">Save Gateway Configuration</button>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <script src="js/admin.js"></script>
+</body>
+</html>
