@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Complete Payment | FIipkart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-badge"><span class="brand-tilted-f">F</span></div>
+        <div class="brand-title">FIipkart</div>
+      </a>
+      <div style="font-size: 13px; font-weight: 600;">100% Secure Transaction</div>
+    </div>
+  </header>
+
+  <main class="main-container" style="max-width: 900px;">
+    <div class="cart-layout" style="grid-template-columns: 1fr;">
+      
+      <div class="cart-table-card">
+        <h2 style="font-size: 18px; margin-bottom: 12px; font-weight: 700;">Order Total: <span id="paymentTotalAmount" style="color: var(--primary-blue);">Calculating...</span></h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">Review your transaction details and select your preferred UPI settlement gateway.</p>
+
+        <div style="display: flex; flex-direction: column; gap: 14px;">
+          
+          <label class="product-card" style="cursor: pointer; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <input type="radio" name="payMethod" value="PHONEPE" checked>
+              <div>
+                <strong style="font-size: 15px;">PhonePe UPI</strong>
+                <div style="font-size: 12px; color: var(--text-muted);">Pay securely directly from your PhonePe App</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; background: #e0f2fe; color: #0284c7; padding: 4px 8px; border-radius: 4px; font-weight: 700;">INSTANT</span>
+          </label>
+
+          <label class="product-card" style="cursor: pointer; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <input type="radio" name="payMethod" value="GPAY">
+              <div>
+                <strong style="font-size: 15px;">Google Pay (GPay)</strong>
+                <div style="font-size: 12px; color: var(--text-muted);">Tez-powered high-speed authorized payment</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; background: #e0f2fe; color: #0284c7; padding: 4px 8px; border-radius: 4px; font-weight: 700;">INSTANT</span>
+          </label>
+
+          <label class="product-card" style="cursor: pointer; display: flex; flex-direction: row; align-items: center; justify-content: space-between;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <input type="radio" name="payMethod" value="PAYTM">
+              <div>
+                <strong style="font-size: 15px;">Paytm UPI</strong>
+                <div style="font-size: 12px; color: var(--text-muted);">Official Paytm wallet or linked UPI handle</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; background: #e0f2fe; color: #0284c7; padding: 4px 8px; border-radius: 4px; font-weight: 700;">INSTANT</span>
+          </label>
+
+          <label class="product-card" style="opacity: 0.6; cursor: not-allowed; display: flex; flex-direction: row; align-items: center; justify-content: space-between; background: #fafafa;">
+            <div style="display: flex; align-items: center; gap: 14px;">
+              <input type="radio" name="payMethod" value="COD" disabled>
+              <div>
+                <strong style="font-size: 15px;">Cash on Delivery (COD)</strong>
+                <div style="font-size: 12px; color: var(--danger-red); font-weight: 600;">Currently Unavailable for this pin code</div>
+              </div>
+            </div>
+            <span style="font-size: 11px; background: #fee2e2; color: var(--danger-red); padding: 4px 8px; border-radius: 4px; font-weight: 700;">DISABLED</span>
+          </label>
+
+        </div>
+
+        <button class="btn-checkout" id="initiatePayBtn" onclick="processPayment()" style="margin-top: 24px;">
+          Proceed to Pay Securely
+        </button>
+
+        <div id="paymentStatusBox" style="display: none; margin-top: 24px; padding: 20px; border: 1px solid var(--border-color); border-radius: 6px; text-align: center;">
+          <h3 id="paymentStatusTitle" style="font-size: 18px; margin-bottom: 8px;">Awaiting Verification</h3>
+          <p id="paymentStatusDesc" style="font-size: 14px; color: var(--text-muted); margin-bottom: 16px;">Initiating secure UPI session...</p>
+          <div id="upiActionContainer"></div>
+        </div>
+
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer" style="margin-top: 80px;">
+    <div class="footer-bottom" style="margin: 0 auto;">
+      <div>&copy; 2025 FIipkart. Encrypted Secure Gateway.</div>
+      <div>
+        <a href="admin-login.html" class="gemini-admin-link">Gemini</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/payment.js"></script>
+</body>
+</html>
