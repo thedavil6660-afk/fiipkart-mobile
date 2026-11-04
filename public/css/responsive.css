@@ -1,0 +1,47 @@
+@media (max-width: 1024px) {
+  .products-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  .cart-layout {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .header-container {
+    flex-wrap: wrap;
+    padding: 10px 12px;
+  }
+
+  .search-wrapper {
+    order: 3;
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .products-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 8px;
+  }
+
+  .product-card {
+    padding: 10px;
+  }
+
+  .product-thumb-wrap {
+    height: 130px;
+  }
+
+  .product-name {
+    font-size: 12px;
+    height: 32px;
+  }
+
+  .current-price {
+    font-size: 14px;
+  }
+
+  .footer-inner {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
