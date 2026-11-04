@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FIipkart | Complete Online Shopping Store</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="header-container">
+      <a href="index.html" class="brand-wrapper">
+        <div class="brand-logo-badge">
+          <span class="brand-tilted-f">F</span>
+        </div>
+        <div class="brand-title">
+          FIipkart<span class="yellow-plus">Explore Plus</span>
+        </div>
+      </a>
+
+      <div class="search-wrapper">
+        <input type="text" id="searchInput" class="search-input" placeholder="Search for products, brands and more...">
+        <button id="searchBtn" class="search-btn">Search</button>
+      </div>
+
+      <div class="header-actions">
+        <a href="cart.html" class="header-link">
+          <svg width="20" height="20" fill="currentColor" viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+          Cart <span id="cartCountBadge" class="cart-counter">0</span>
+        </a>
+      </div>
+    </div>
+  </header>
+
+  <nav class="category-nav">
+    <ul class="category-list" id="categoryNav">
+      <li class="category-item active" data-cat="All">All Deals</li>
+      <li class="category-item" data-cat="Smartphones">Smartphones</li>
+      <li class="category-item" data-cat="Laptops">Laptops</li>
+      <li class="category-item" data-cat="Headphones">Headphones</li>
+      <li class="category-item" data-cat="Smartwatches">Smartwatches</li>
+      <li class="category-item" data-cat="Appliances">Appliances</li>
+      <li class="category-item" data-cat="Beauty">Beauty & Skincare</li>
+      <li class="category-item" data-cat="Fashion">Fashion</li>
+      <li class="category-item" data-cat="Electronics">Electronics</li>
+    </ul>
+  </nav>
+
+  <section class="banner-carousel">
+    <div class="banner-slide">
+      <div>
+        <span class="banner-badge">FESTIVE MEGA OFFER</span>
+        <h1 style="font-size: 28px; font-weight: 800; margin-bottom: 6px;">Unbeatable Discounts on Next-Gen Electronics</h1>
+        <p style="font-size: 14px; opacity: 0.9;">Authentic products delivered straight to your door with verified secure UPI settlement.</p>
+      </div>
+      <div style="font-size: 48px; font-weight: 900; color: var(--accent-yellow); text-shadow: 0 2px 4px rgba(0,0,0,0.3);">
+        UP TO 80% OFF
+      </div>
+    </div>
+  </section>
+
+  <main class="main-container">
+    <div class="section-title-wrap">
+      <div>
+        <h2 class="section-title" id="catalogHeading">Trending Products & Deals</h2>
+        <span style="font-size: 12px; color: var(--text-muted);" id="productCountLabel">Showing all products</span>
+      </div>
+      <div class="sorting-controls">
+        <label for="sortSelect" style="font-size: 12px; font-weight: 600; margin-right: 6px;">Sort By:</label>
+        <select id="sortSelect">
+          <option value="featured">Featured Deals</option>
+          <option value="low_to_high">Price: Low to High</option>
+          <option value="high_to_low">Price: High to Low</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="products-grid" id="productGrid"></div>
+  </main>
+
+  <div class="modal-overlay" id="productModal">
+    <div class="modal-content">
+      <button class="modal-close" id="modalCloseBtn">&times;</button>
+      <div id="modalBody"></div>
+    </div>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-inner">
+      <div class="footer-col">
+        <h5>ABOUT</h5>
+        <ul>
+          <li><a href="#">Contact Us</a></li>
+          <li><a href="#">About Us</a></li>
+          <li><a href="#">Careers</a></li>
+          <li><a href="#">FIipkart Stories</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>HELP</h5>
+        <ul>
+          <li><a href="#">Payments</a></li>
+          <li><a href="#">Shipping</a></li>
+          <li><a href="#">Cancellation & Returns</a></li>
+          <li><a href="#">FAQ</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>CONSUMER POLICY</h5>
+        <ul>
+          <li><a href="#">Security</a></li>
+          <li><a href="#">Privacy</a></li>
+          <li><a href="#">Sitemap</a></li>
+          <li><a href="#">Terms of Use</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h5>REGISTERED OFFICE</h5>
+        <p style="line-height: 1.6;">FIipkart Internet Private Limited,<br>Buildings Alyssa, Begonia & Clove Embassy Tech Village,<br>Outer Ring Road, Bengaluru, 560103, Karnataka, India.</p>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <div>&copy; 2025 FIipkart. All rights reserved. Professional E-Commerce Demonstration System.</div>
+      <div>
+        <a href="admin-login.html" class="gemini-admin-link">Gemini</a>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/products.js"></script>
+  <script src="js/main.js"></script>
+</body>
+</html>
