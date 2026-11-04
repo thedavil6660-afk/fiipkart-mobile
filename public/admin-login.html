@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gemini Management Portal | FIipkart</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body style="background: #0f172a; display: flex; align-items: center; justify-content: center; min-height: 100vh; padding: 20px;">
+
+  <div style="background: #ffffff; border-radius: 8px; width: 100%; max-width: 420px; padding: 32px; box-shadow: 0 10px 25px rgba(0,0,0,0.3);">
+    <div style="text-align: center; margin-bottom: 24px;">
+      <div class="brand-logo-badge" style="margin: 0 auto 10px;">
+        <span class="brand-tilted-f">F</span>
+      </div>
+      <h2 style="font-size: 20px; font-weight: 800; color: var(--dark-navy);">Gemini Control Center</h2>
+      <p style="font-size: 13px; color: var(--text-muted);">FIipkart Operations & Merchant Administration</p>
+    </div>
+
+    <form id="adminLoginForm">
+      <div style="margin-bottom: 16px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Username</label>
+        <input type="text" id="adminUser" class="search-input" style="border: 1px solid var(--border-color);" placeholder="Enter admin username" required>
+      </div>
+
+      <div style="margin-bottom: 20px;">
+        <label style="display: block; font-size: 13px; font-weight: 600; margin-bottom: 6px;">Password</label>
+        <input type="password" id="adminPass" class="search-input" style="border: 1px solid var(--border-color);" placeholder="Enter password" required>
+      </div>
+
+      <button type="submit" class="btn-checkout" style="background: var(--primary-blue); margin-top: 0;">
+        Sign In to Gemini
+      </button>
+
+      <div id="loginError" style="display: none; margin-top: 14px; font-size: 13px; color: var(--danger-red); text-align: center; font-weight: 600;"></div>
+    </form>
+  </div>
+
+  <script>
+    document.getElementById('adminLoginForm').addEventListener('submit', (e) => {
+      e.preventDefault();
+      const username = document.getElementById('adminUser').value.trim();
+      const password = document.getElementById('adminPass').value.trim();
+      const errBox = document.getElementById('loginError');
+
+      errBox.style.display = 'none';
+
+      fetch('/api/admin/login', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ username, password })
+      })
+      .then(res => res.json())
+      .then(data => {
+        if (data.success) {
+          localStorage.setItem('fiipkart_admin_token', data.token);
+          localStorage.setItem('fiipkart_admin_name', data.username);
+          window.location.href = 'admin-dashboard.html';
+        } else {
+          errBox.innerText = data.message || 'Access denied';
+          errBox.style.display = 'block';
+        }
+      })
+      .catch(() => {
+        errBox.innerText = 'Unable to reach backend security server.';
+        errBox.style.display = 'block';
+      });
+    });
+  </script>
+</body>
+</html>
